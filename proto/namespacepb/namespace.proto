@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package namespace;
+
+option go_package = "proto/namespacepb;namespacepb";
+
+service NamespaceService {
+  rpc CreateNamespace (CreateNamespaceRequest) returns (CreateNamespaceResponse);
+}
+
+message CreateNamespaceRequest {
+  string slug = 1;
+}
+
+message CreateNamespaceResponse {
+  string status = 1;
+}
