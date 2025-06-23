@@ -24,6 +24,7 @@ const (
 type CreateNamespaceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
+	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -63,6 +64,13 @@ func (x *CreateNamespaceRequest) GetSlug() string {
 		return x.Slug
 	}
 	return ""
+}
+
+func (x *CreateNamespaceRequest) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
 }
 
 type CreateNamespaceResponse struct {
@@ -113,9 +121,10 @@ var File_namespacepb_namespace_proto protoreflect.FileDescriptor
 
 const file_namespacepb_namespace_proto_rawDesc = "" +
 	"\n" +
-	"\x1bnamespacepb/namespace.proto\x12\tnamespace\",\n" +
+	"\x1bnamespacepb/namespace.proto\x12\tnamespace\"E\n" +
 	"\x16CreateNamespaceRequest\x12\x12\n" +
-	"\x04slug\x18\x01 \x01(\tR\x04slug\"1\n" +
+	"\x04slug\x18\x01 \x01(\tR\x04slug\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x05R\x06userId\"1\n" +
 	"\x17CreateNamespaceResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status2l\n" +
 	"\x10NamespaceService\x12X\n" +

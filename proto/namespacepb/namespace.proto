@@ -10,6 +10,7 @@ service NamespaceService {
 
 message CreateNamespaceRequest {
   string slug = 1;
+  int32 user_id=2;
 }
 
 message CreateNamespaceResponse {
