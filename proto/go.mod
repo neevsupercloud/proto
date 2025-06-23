@@ -1,4 +1,4 @@
-module  github.com/neevsupercloud/proto
+module  github.com/neevsupercloud/proto/proto
 
 go 1.24.0
 
