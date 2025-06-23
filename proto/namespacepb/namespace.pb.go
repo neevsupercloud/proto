@@ -25,6 +25,8 @@ type CreateNamespaceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
 	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	KID           string                 `protobuf:"bytes,3,opt,name=KID,proto3" json:"KID,omitempty"`
+	Email         string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -71,6 +73,20 @@ func (x *CreateNamespaceRequest) GetUserId() int32 {
 		return x.UserId
 	}
 	return 0
+}
+
+func (x *CreateNamespaceRequest) GetKID() string {
+	if x != nil {
+		return x.KID
+	}
+	return ""
+}
+
+func (x *CreateNamespaceRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
 }
 
 type CreateNamespaceResponse struct {
@@ -121,10 +137,12 @@ var File_namespacepb_namespace_proto protoreflect.FileDescriptor
 
 const file_namespacepb_namespace_proto_rawDesc = "" +
 	"\n" +
-	"\x1bnamespacepb/namespace.proto\x12\tnamespace\"E\n" +
+	"\x1bnamespacepb/namespace.proto\x12\tnamespace\"m\n" +
 	"\x16CreateNamespaceRequest\x12\x12\n" +
 	"\x04slug\x18\x01 \x01(\tR\x04slug\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x05R\x06userId\"1\n" +
+	"\auser_id\x18\x02 \x01(\x05R\x06userId\x12\x10\n" +
+	"\x03KID\x18\x03 \x01(\tR\x03KID\x12\x14\n" +
+	"\x05email\x18\x04 \x01(\tR\x05email\"1\n" +
 	"\x17CreateNamespaceResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status2l\n" +
 	"\x10NamespaceService\x12X\n" +
