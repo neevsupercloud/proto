@@ -9,11 +9,11 @@ service NamespaceService {
 }
 
 message CreateNamespaceRequest {
-  string slug = 1;
+  optional string namespace_name=1;
   int32 user_id=2;
   string KID=3;
   string email=4;
-  
+
 }
 
 message CreateNamespaceResponse {
