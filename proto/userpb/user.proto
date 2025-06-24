@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "proto/userpb;userpb";
+
+
+
+service UserService{
+ rpc EnsureUserExist (EnsureUserExistRequest) returns (EnsureUserExistResponse);
+}
+
+message EnsureUserExistRequest {
+  string KID = 1;
+  string email = 2;
+}
+
+message EnsureUserExistResponse {
+  string user_id = 1;
+}
