@@ -23,7 +23,7 @@ const (
 
 type CreateNamespaceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
+	NamespaceName *string                `protobuf:"bytes,1,opt,name=namespace_name,json=namespaceName,proto3,oneof" json:"namespace_name,omitempty"`
 	UserId        int32                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	KID           string                 `protobuf:"bytes,3,opt,name=KID,proto3" json:"KID,omitempty"`
 	Email         string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
@@ -61,9 +61,9 @@ func (*CreateNamespaceRequest) Descriptor() ([]byte, []int) {
 	return file_namespacepb_namespace_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateNamespaceRequest) GetSlug() string {
-	if x != nil {
-		return x.Slug
+func (x *CreateNamespaceRequest) GetNamespaceName() string {
+	if x != nil && x.NamespaceName != nil {
+		return *x.NamespaceName
 	}
 	return ""
 }
@@ -137,12 +137,13 @@ var File_namespacepb_namespace_proto protoreflect.FileDescriptor
 
 const file_namespacepb_namespace_proto_rawDesc = "" +
 	"\n" +
-	"\x1bnamespacepb/namespace.proto\x12\tnamespace\"m\n" +
-	"\x16CreateNamespaceRequest\x12\x12\n" +
-	"\x04slug\x18\x01 \x01(\tR\x04slug\x12\x17\n" +
+	"\x1bnamespacepb/namespace.proto\x12\tnamespace\"\x98\x01\n" +
+	"\x16CreateNamespaceRequest\x12*\n" +
+	"\x0enamespace_name\x18\x01 \x01(\tH\x00R\rnamespaceName\x88\x01\x01\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x05R\x06userId\x12\x10\n" +
 	"\x03KID\x18\x03 \x01(\tR\x03KID\x12\x14\n" +
-	"\x05email\x18\x04 \x01(\tR\x05email\"1\n" +
+	"\x05email\x18\x04 \x01(\tR\x05emailB\x11\n" +
+	"\x0f_namespace_name\"1\n" +
 	"\x17CreateNamespaceResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status2l\n" +
 	"\x10NamespaceService\x12X\n" +
@@ -180,6 +181,7 @@ func file_namespacepb_namespace_proto_init() {
 	if File_namespacepb_namespace_proto != nil {
 		return
 	}
+	file_namespacepb_namespace_proto_msgTypes[0].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
