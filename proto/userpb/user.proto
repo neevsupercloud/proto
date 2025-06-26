@@ -16,5 +16,6 @@ message EnsureUserExistRequest {
 }
 
 message EnsureUserExistResponse {
-  string user_id = 1;
+    int32 user_id = 1;
+   string status =2;
 }
