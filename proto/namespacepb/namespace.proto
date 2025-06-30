@@ -6,6 +6,19 @@ option go_package = "proto/namespacepb;namespacepb";
 
 service NamespaceService {
   rpc CreateNamespace (CreateNamespaceRequest) returns (CreateNamespaceResponse);
+  rpc GetProjectByNamespaceSlug(GetProjectByNamespaceSlugRequest) returns (GetProjectByNamespaceSlugResponse);
+}
+
+message GetProjectByNamespaceSlugRequest{
+  string slug=1;
+
+}
+message GetProjectByNamespaceSlugResponse{
+
+int32 user_id=1;
+int32 team_id=2;
+string status=3;
+
 }
 
 message CreateNamespaceRequest {

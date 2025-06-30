@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.31.1
-// source: namespacepb/namespace.proto
+// source: namespace.proto
 
 package namespacepb
 
@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	NamespaceService_CreateNamespace_FullMethodName = "/namespace.NamespaceService/CreateNamespace"
+	NamespaceService_CreateNamespace_FullMethodName           = "/namespace.NamespaceService/CreateNamespace"
+	NamespaceService_GetProjectByNamespaceSlug_FullMethodName = "/namespace.NamespaceService/GetProjectByNamespaceSlug"
 )
 
 // NamespaceServiceClient is the client API for NamespaceService service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NamespaceServiceClient interface {
 	CreateNamespace(ctx context.Context, in *CreateNamespaceRequest, opts ...grpc.CallOption) (*CreateNamespaceResponse, error)
+	GetProjectByNamespaceSlug(ctx context.Context, in *GetProjectByNamespaceSlugRequest, opts ...grpc.CallOption) (*GetProjectByNamespaceSlugResponse, error)
 }
 
 type namespaceServiceClient struct {
@@ -47,11 +49,22 @@ func (c *namespaceServiceClient) CreateNamespace(ctx context.Context, in *Create
 	return out, nil
 }
 
+func (c *namespaceServiceClient) GetProjectByNamespaceSlug(ctx context.Context, in *GetProjectByNamespaceSlugRequest, opts ...grpc.CallOption) (*GetProjectByNamespaceSlugResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProjectByNamespaceSlugResponse)
+	err := c.cc.Invoke(ctx, NamespaceService_GetProjectByNamespaceSlug_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NamespaceServiceServer is the server API for NamespaceService service.
 // All implementations must embed UnimplementedNamespaceServiceServer
 // for forward compatibility.
 type NamespaceServiceServer interface {
 	CreateNamespace(context.Context, *CreateNamespaceRequest) (*CreateNamespaceResponse, error)
+	GetProjectByNamespaceSlug(context.Context, *GetProjectByNamespaceSlugRequest) (*GetProjectByNamespaceSlugResponse, error)
 	mustEmbedUnimplementedNamespaceServiceServer()
 }
 
@@ -64,6 +77,9 @@ type UnimplementedNamespaceServiceServer struct{}
 
 func (UnimplementedNamespaceServiceServer) CreateNamespace(context.Context, *CreateNamespaceRequest) (*CreateNamespaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateNamespace not implemented")
+}
+func (UnimplementedNamespaceServiceServer) GetProjectByNamespaceSlug(context.Context, *GetProjectByNamespaceSlugRequest) (*GetProjectByNamespaceSlugResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProjectByNamespaceSlug not implemented")
 }
 func (UnimplementedNamespaceServiceServer) mustEmbedUnimplementedNamespaceServiceServer() {}
 func (UnimplementedNamespaceServiceServer) testEmbeddedByValue()                          {}
@@ -104,6 +120,24 @@ func _NamespaceService_CreateNamespace_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NamespaceService_GetProjectByNamespaceSlug_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProjectByNamespaceSlugRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NamespaceServiceServer).GetProjectByNamespaceSlug(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NamespaceService_GetProjectByNamespaceSlug_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NamespaceServiceServer).GetProjectByNamespaceSlug(ctx, req.(*GetProjectByNamespaceSlugRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // NamespaceService_ServiceDesc is the grpc.ServiceDesc for NamespaceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -115,7 +149,11 @@ var NamespaceService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "CreateNamespace",
 			Handler:    _NamespaceService_CreateNamespace_Handler,
 		},
+		{
+			MethodName: "GetProjectByNamespaceSlug",
+			Handler:    _NamespaceService_GetProjectByNamespaceSlug_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "namespacepb/namespace.proto",
+	Metadata: "namespace.proto",
 }

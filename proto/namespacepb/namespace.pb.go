@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.31.1
-// source: namespacepb/namespace.proto
+// source: namespace.proto
 
 package namespacepb
 
@@ -21,6 +21,110 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetProjectByNamespaceSlugRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProjectByNamespaceSlugRequest) Reset() {
+	*x = GetProjectByNamespaceSlugRequest{}
+	mi := &file_namespace_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProjectByNamespaceSlugRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProjectByNamespaceSlugRequest) ProtoMessage() {}
+
+func (x *GetProjectByNamespaceSlugRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_namespace_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProjectByNamespaceSlugRequest.ProtoReflect.Descriptor instead.
+func (*GetProjectByNamespaceSlugRequest) Descriptor() ([]byte, []int) {
+	return file_namespace_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetProjectByNamespaceSlugRequest) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+type GetProjectByNamespaceSlugResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        int32                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	TeamId        int32                  `protobuf:"varint,2,opt,name=team_id,json=teamId,proto3" json:"team_id,omitempty"`
+	Status        string                 `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProjectByNamespaceSlugResponse) Reset() {
+	*x = GetProjectByNamespaceSlugResponse{}
+	mi := &file_namespace_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProjectByNamespaceSlugResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProjectByNamespaceSlugResponse) ProtoMessage() {}
+
+func (x *GetProjectByNamespaceSlugResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_namespace_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProjectByNamespaceSlugResponse.ProtoReflect.Descriptor instead.
+func (*GetProjectByNamespaceSlugResponse) Descriptor() ([]byte, []int) {
+	return file_namespace_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetProjectByNamespaceSlugResponse) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *GetProjectByNamespaceSlugResponse) GetTeamId() int32 {
+	if x != nil {
+		return x.TeamId
+	}
+	return 0
+}
+
+func (x *GetProjectByNamespaceSlugResponse) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
 type CreateNamespaceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	NamespaceName *string                `protobuf:"bytes,1,opt,name=namespace_name,json=namespaceName,proto3,oneof" json:"namespace_name,omitempty"`
@@ -33,7 +137,7 @@ type CreateNamespaceRequest struct {
 
 func (x *CreateNamespaceRequest) Reset() {
 	*x = CreateNamespaceRequest{}
-	mi := &file_namespacepb_namespace_proto_msgTypes[0]
+	mi := &file_namespace_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +149,7 @@ func (x *CreateNamespaceRequest) String() string {
 func (*CreateNamespaceRequest) ProtoMessage() {}
 
 func (x *CreateNamespaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_namespacepb_namespace_proto_msgTypes[0]
+	mi := &file_namespace_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +162,7 @@ func (x *CreateNamespaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateNamespaceRequest.ProtoReflect.Descriptor instead.
 func (*CreateNamespaceRequest) Descriptor() ([]byte, []int) {
-	return file_namespacepb_namespace_proto_rawDescGZIP(), []int{0}
+	return file_namespace_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateNamespaceRequest) GetNamespaceName() string {
@@ -98,7 +202,7 @@ type CreateNamespaceResponse struct {
 
 func (x *CreateNamespaceResponse) Reset() {
 	*x = CreateNamespaceResponse{}
-	mi := &file_namespacepb_namespace_proto_msgTypes[1]
+	mi := &file_namespace_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -110,7 +214,7 @@ func (x *CreateNamespaceResponse) String() string {
 func (*CreateNamespaceResponse) ProtoMessage() {}
 
 func (x *CreateNamespaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_namespacepb_namespace_proto_msgTypes[1]
+	mi := &file_namespace_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -123,7 +227,7 @@ func (x *CreateNamespaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateNamespaceResponse.ProtoReflect.Descriptor instead.
 func (*CreateNamespaceResponse) Descriptor() ([]byte, []int) {
-	return file_namespacepb_namespace_proto_rawDescGZIP(), []int{1}
+	return file_namespace_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateNamespaceResponse) GetStatus() string {
@@ -133,11 +237,17 @@ func (x *CreateNamespaceResponse) GetStatus() string {
 	return ""
 }
 
-var File_namespacepb_namespace_proto protoreflect.FileDescriptor
+var File_namespace_proto protoreflect.FileDescriptor
 
-const file_namespacepb_namespace_proto_rawDesc = "" +
+const file_namespace_proto_rawDesc = "" +
 	"\n" +
-	"\x1bnamespacepb/namespace.proto\x12\tnamespace\"\x98\x01\n" +
+	"\x0fnamespace.proto\x12\tnamespace\"6\n" +
+	" GetProjectByNamespaceSlugRequest\x12\x12\n" +
+	"\x04slug\x18\x01 \x01(\tR\x04slug\"m\n" +
+	"!GetProjectByNamespaceSlugResponse\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x05R\x06userId\x12\x17\n" +
+	"\ateam_id\x18\x02 \x01(\x05R\x06teamId\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\"\x98\x01\n" +
 	"\x16CreateNamespaceRequest\x12*\n" +
 	"\x0enamespace_name\x18\x01 \x01(\tH\x00R\rnamespaceName\x88\x01\x01\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x05R\x06userId\x12\x10\n" +
@@ -145,58 +255,63 @@ const file_namespacepb_namespace_proto_rawDesc = "" +
 	"\x05email\x18\x04 \x01(\tR\x05emailB\x11\n" +
 	"\x0f_namespace_name\"1\n" +
 	"\x17CreateNamespaceResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status2l\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status2\xe4\x01\n" +
 	"\x10NamespaceService\x12X\n" +
-	"\x0fCreateNamespace\x12!.namespace.CreateNamespaceRequest\x1a\".namespace.CreateNamespaceResponseB\x1fZ\x1dproto/namespacepb;namespacepbb\x06proto3"
+	"\x0fCreateNamespace\x12!.namespace.CreateNamespaceRequest\x1a\".namespace.CreateNamespaceResponse\x12v\n" +
+	"\x19GetProjectByNamespaceSlug\x12+.namespace.GetProjectByNamespaceSlugRequest\x1a,.namespace.GetProjectByNamespaceSlugResponseB\x1fZ\x1dproto/namespacepb;namespacepbb\x06proto3"
 
 var (
-	file_namespacepb_namespace_proto_rawDescOnce sync.Once
-	file_namespacepb_namespace_proto_rawDescData []byte
+	file_namespace_proto_rawDescOnce sync.Once
+	file_namespace_proto_rawDescData []byte
 )
 
-func file_namespacepb_namespace_proto_rawDescGZIP() []byte {
-	file_namespacepb_namespace_proto_rawDescOnce.Do(func() {
-		file_namespacepb_namespace_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_namespacepb_namespace_proto_rawDesc), len(file_namespacepb_namespace_proto_rawDesc)))
+func file_namespace_proto_rawDescGZIP() []byte {
+	file_namespace_proto_rawDescOnce.Do(func() {
+		file_namespace_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_namespace_proto_rawDesc), len(file_namespace_proto_rawDesc)))
 	})
-	return file_namespacepb_namespace_proto_rawDescData
+	return file_namespace_proto_rawDescData
 }
 
-var file_namespacepb_namespace_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_namespacepb_namespace_proto_goTypes = []any{
-	(*CreateNamespaceRequest)(nil),  // 0: namespace.CreateNamespaceRequest
-	(*CreateNamespaceResponse)(nil), // 1: namespace.CreateNamespaceResponse
+var file_namespace_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_namespace_proto_goTypes = []any{
+	(*GetProjectByNamespaceSlugRequest)(nil),  // 0: namespace.GetProjectByNamespaceSlugRequest
+	(*GetProjectByNamespaceSlugResponse)(nil), // 1: namespace.GetProjectByNamespaceSlugResponse
+	(*CreateNamespaceRequest)(nil),            // 2: namespace.CreateNamespaceRequest
+	(*CreateNamespaceResponse)(nil),           // 3: namespace.CreateNamespaceResponse
 }
-var file_namespacepb_namespace_proto_depIdxs = []int32{
-	0, // 0: namespace.NamespaceService.CreateNamespace:input_type -> namespace.CreateNamespaceRequest
-	1, // 1: namespace.NamespaceService.CreateNamespace:output_type -> namespace.CreateNamespaceResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+var file_namespace_proto_depIdxs = []int32{
+	2, // 0: namespace.NamespaceService.CreateNamespace:input_type -> namespace.CreateNamespaceRequest
+	0, // 1: namespace.NamespaceService.GetProjectByNamespaceSlug:input_type -> namespace.GetProjectByNamespaceSlugRequest
+	3, // 2: namespace.NamespaceService.CreateNamespace:output_type -> namespace.CreateNamespaceResponse
+	1, // 3: namespace.NamespaceService.GetProjectByNamespaceSlug:output_type -> namespace.GetProjectByNamespaceSlugResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_namespacepb_namespace_proto_init() }
-func file_namespacepb_namespace_proto_init() {
-	if File_namespacepb_namespace_proto != nil {
+func init() { file_namespace_proto_init() }
+func file_namespace_proto_init() {
+	if File_namespace_proto != nil {
 		return
 	}
-	file_namespacepb_namespace_proto_msgTypes[0].OneofWrappers = []any{}
+	file_namespace_proto_msgTypes[2].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_namespacepb_namespace_proto_rawDesc), len(file_namespacepb_namespace_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_namespace_proto_rawDesc), len(file_namespace_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_namespacepb_namespace_proto_goTypes,
-		DependencyIndexes: file_namespacepb_namespace_proto_depIdxs,
-		MessageInfos:      file_namespacepb_namespace_proto_msgTypes,
+		GoTypes:           file_namespace_proto_goTypes,
+		DependencyIndexes: file_namespace_proto_depIdxs,
+		MessageInfos:      file_namespace_proto_msgTypes,
 	}.Build()
-	File_namespacepb_namespace_proto = out.File
-	file_namespacepb_namespace_proto_goTypes = nil
-	file_namespacepb_namespace_proto_depIdxs = nil
+	File_namespace_proto = out.File
+	file_namespace_proto_goTypes = nil
+	file_namespace_proto_depIdxs = nil
 }
